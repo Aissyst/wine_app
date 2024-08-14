@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link rel="stylesheet" href="Css/styles.css">
+    <script defer src="./Js/scripts.js"></script>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/bdW1BJy/final-logo.png" alt="final-logo" class="left-logo">
+        <img src="https://i.ibb.co/SyZXXzH/logo-tang.png" alt="logo-tang" border="0" class="center-logo">
+    </header>
+    <main>
+        
+        <section class="country-section">
+            <label>
+                <img src="https://i.ibb.co/DRKHRh0/lang1.png" alt="lang1" class="flag">
+                <input type="radio" name="country" value="eng" class="radio">
+                <span class="custom-radio"></span>
+            </label>
+            <label>
+                <img src="https://i.ibb.co/mTXM4GB/spain-flag.png" alt="spain-flag" border="0" class="flag">
+                <input type="radio" name="country" value="ara" class="radio">
+                <span class="custom-radio"></span>
+            </label>
+            <label>
+                <img src="https://i.ibb.co/jvdmD35/lang3.png" alt="lang3" class="flag">
+                <input type="radio" name="country" value="rus" class="radio">
+                <span class="custom-radio"></span>
+            </label>
+            <label>
+                <img src="https://i.ibb.co/w7qHxtP/lang4.png" alt="lang4" class="flag">
+                <input type="radio" name="country" value="kor" class="radio">
+                <span class="custom-radio"></span>
+            </label>
+        </section>
+        <section class="helper-section">
+            <h2>Choose your helper</h2>
+            <div class="helpers">
+                <label class="helper">
+                    <input type="radio" name="helper" value="john" class="helper-radio">
+                    <div class="helper-content">
+						<img src="https://i.ibb.co/H4tcnMK/man.png" alt="man" border="0" class="helper-image">
+                        <p>John</p>
+                    </div>
+                </label>
+                <label class="helper">
+                    <input type="radio" name="helper" value="mandy" class="helper-radio">
+                    <div class="helper-content">
+						<img src="https://i.ibb.co/yFXQ3pD/woman.png" alt="woman" border="0" class="helper-image">
+
+                        <p>Mandy</p>
+                    </div>
+                </label>
+            </div>
+            <button class="continue-button">Continue</button>
+        </section>
+    </main>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const helperLabels = document.querySelectorAll('.helper');
+    const countryLabels = document.querySelectorAll('.country-section label');
+	const continueButton = document.querySelector('.continue-button');
+	 continueButton.addEventListener('click', () => {
+        const selectedCountry = document.querySelector('input[name="country"]:checked');
+        const selectedHelper = document.querySelector('input[name="helper"]:checked');
+
+        if (selectedCountry && selectedHelper) {
+            const countryValue = selectedCountry.value;
+            const helperValue = selectedHelper.value;
+            console.log('Selected Country:', countryValue);
+            console.log('Selected Helper:', helperValue);
+			window.open('chatingPage.html',"_self");
+            // Perform your next steps here, like form submission or navigation
+        } else {
+            alert('Please select both a country and a helper.');
+        }
+    });
+});
+</script>
+</html>
